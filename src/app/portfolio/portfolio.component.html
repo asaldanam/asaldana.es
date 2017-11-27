@@ -1,0 +1,15 @@
+<p>
+  portfolio works!
+</p>
+
+<ul class="" style="color: red">
+  <li *ngFor="let work of portfolio">
+    <div class="">
+      {{work.name}}
+    </div>
+    <p *ngFor="let paragrapth of work.description">
+      {{paragrapth}}
+    </p>
+    <a href="{{work.url}}">asdf</a>
+  </li>
+</ul>
