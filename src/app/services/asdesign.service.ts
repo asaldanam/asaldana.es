@@ -11,9 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AsdesignService {
 
-  projectsId: any[] = [];
-
-  portfolio: any[] = [
+  cosa: any[] = [
       {
         name: 'Cerbero',
         description: [
@@ -33,23 +31,12 @@ export class AsdesignService {
   }
 
   getProjects() {
-    let apiURL = `https://api.behance.net/v2/users/asaldanam2a11/projects?client_id=LU2mz0ZNPRKg6kLjC46e1Fd9aL1NA1CX&callback=JSONP_CALLBACK`;
+    let apiURL = `https://api.behance.net/v2/users/asaldanam2a11/projects?client_id=9P9QYEfzOkR7xVZAMfUdlic1UCjOInlO&callback=JSONP_CALLBACK`;
     let headers = new Headers({
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST,GET,PUT,DELETE',
       'Access-Control-Allow-Headers': 'Authorization, Lang'
     })
-    return this.jsonp.get(apiURL)
-               .map( (resp:any) => {
-                 let projects = resp._body.projects;
-                 for(let i in projects) {
-                   this.projectsId.push(projects[i].id);
-                   return this.projectsId;
-                 };
-               });
-      // .subscribe(resp => {
-      //   console.log(resp);
-      //   return resp;
-      // });
+    return this.jsonp.get(apiURL).map( (resp:any) => resp.json().projects )
   }
 }

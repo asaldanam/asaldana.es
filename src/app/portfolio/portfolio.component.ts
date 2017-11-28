@@ -6,19 +6,25 @@ import { AsdesignService } from '../services/asdesign.service';
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.css']
 })
-export class PortfolioComponent implements OnInit {
-  portfolio:any = this._asdesing.portfolio;
-  prueba:any[] = ['cosa1', 'cosa2'];
 
-  constructor(public _asdesing: AsdesignService) {
-    this._asdesing.getProjects()
-                  .subscribe(projects => {
-                    console.log(projects);
-                  });
+export class PortfolioComponent implements OnInit {
+
+  portfolio = "";
+
+  constructor(
+    public _asdesing: AsdesignService
+  )
+  {}
+
+  loadProjects() {
+    this._asdesing.getProjects().subscribe(data => {
+      this.portfolio = data;
+      console.log(this.portfolio);
+    });
   }
 
   ngOnInit() {
-    // console.log(this.portfolio);
+    this.loadProjects();
   }
 
 }

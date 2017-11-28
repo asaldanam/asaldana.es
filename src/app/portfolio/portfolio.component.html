@@ -1,8 +1,15 @@
 <p>
   portfolio works!
 </p>
+<!-- {{portfolio | json}} -->
+<div class="" *ngFor="let project of portfolio">
+  <h2><a href="{{project.url}}" target="_blank">{{project.name}}</a></h2>
+  <img src="{{project.covers.original}}" alt="">
 
-<ul class="" style="color: red">
+</div>
+
+
+<!-- <ul class="" style="color: red">
   <li *ngFor="let work of portfolio">
     <div class="">
       {{work.name}}
@@ -12,4 +19,4 @@
     </p>
     <a href="{{work.url}}">asdf</a>
   </li>
-</ul>
+</ul> -->
