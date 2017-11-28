@@ -4,7 +4,7 @@ import { AsdesignService } from '../services/asdesign.service';
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
-  styleUrls: ['./cv.component.css']
+  styleUrls: ['./cv.component.sass']
 })
 export class CvComponent implements OnInit {
 

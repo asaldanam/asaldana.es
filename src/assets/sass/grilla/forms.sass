@@ -1,0 +1,83 @@
+
+
+// label styles
+@mixin custom-label
+  font-size: $form-font-size
+  display: inline-block
+  margin-bottom: 5px
+
+
+//input styles
+@mixin custom-input
+  border-radius: $form-border-radius
+  font-family: inherit
+  font-size: $form-font-size
+  font-weight: $form-font-weight
+  display: block
+  width: 100%
+  max-width: 100%
+  height: auto
+  border: $form-border
+  padding-top: $form-padding-y
+  padding-bottom: $form-padding-y
+  padding-left: $form-padding-x
+  padding-right: $form-padding-x
+  box-sizing: border-box
+  line-height: auto
+  color: $form-font-color
+  vertical-align: middle
+  background-color: $form-bg-color
+  // background: a icon for select
+  -moz-appearance: none
+  -webkit-appearance: none
+  outline: none
+  box-shadow: $form-box-shadow
+
+  &::-webkit-input-placeholder
+    color: transparentize($form-font-color, .33)
+
+//select styles
+@mixin custom-select
+  @include custom-input
+  // padding-top: $form-padding-y
+  // padding-bottom: $form-padding-y
+
+//textarea styles
+@mixin custom-textarea
+  @include custom-input
+  resize: vertical
+
+//checks styles
+@mixin custom-checkbox
+  color: rgb(51, 51, 51)
+  width: 18px
+  padding: 0
+  height: 18px
+  position: absolute
+  display: inline-block
+  margin: 0
+  margin-right: 0.2rem
+  cursor: pointer
+  border-radius: 2px
+
+  &:checked
+    border-color: $color-valid
+    background-color: $color-valid
+    &::after
+      @include material_icons
+      content: 'check'
+      font-size: 14px
+      position: relative
+      left: 1px
+      font-weight: bolder
+
+      color: white
+
+@mixin label-checkbox
+  cursor: pointer
+  position: relative
+  span
+    @include custom-label
+    margin-left: 24px
+    position: relative
+    bottom: .15rem

@@ -1,0 +1,58 @@
+@mixin btn
+  transition: $linear-short
+  cursor: pointer
+  border-radius: $btn-border-radius
+  font-family: inherit
+  font-size: $btn-font-size
+  font-weight: $btn-font-weight
+  display: inline-block
+  max-width: 100%
+  border: $btn-border
+  height: auto
+  padding: $btn-padding
+  line-height: auto
+  color: $btn-font-color
+  vertical-align: middle
+  background-color: $btn-bg-color
+  -moz-appearance: none
+  -webkit-appearance: none
+  outline: none
+  i.material-icons
+    font-size: 1.25rem
+    position: relative
+    top: .35rem
+    margin: 0px
+    padding: 0px
+    margin-right: -0.3rem
+    margin-left: -0.3rem
+    line-height: 0
+
+@mixin btn-pri
+  color: $btn-font-color
+  background-color: $btn-bg-color
+  &:hover, &:focus, &:active
+    background-color: lighten($btn-bg-color, 30%)
+    color: lighten($btn-font-color, 10%)
+
+@mixin btn-alt
+  color: $btn-bg-color
+  border: 1px solid
+  border-color: $btn-bg-color
+  background-color: white
+  &:hover
+    opacity: 0.65
+    color: $btn-bg-color !important
+
+@mixin btn-sec
+  transition: $smooth-short
+  color: $btn-sec-color
+  background-color: transparent
+  border-color: $btn-sec-color
+  &:hover
+    background-color: $btn-sec-color
+    color: $btn-font-color !important
+
+@mixin btn-dis
+  color: white
+  background-color: #ddd
+  &:hover

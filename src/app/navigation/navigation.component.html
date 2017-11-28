@@ -1,16 +1,16 @@
-<nav>
-  <ul>
-    <li routerLinkActive="active">
-      <a [routerLink]="['home']">Home</a>
-    </li>
-    <li routerLinkActive="active">
+<nav class="navigation">
+  <div class="navigation-menu">
+    <div routerLinkActive="active" class="link-item">
+      <a [routerLink]="['home']">Inicio</a>
+    </div>
+    <div routerLinkActive="active" class="link-item">
+      <a [routerLink]="['cv']">Cv</a>
+    </div>
+    <div routerLinkActive="active" class="link-item">
       <a [routerLink]="['portfolio']">Portfolio</a>
-    </li>
-    <li routerLinkActive="active">
-      <a [routerLink]="['cv']">CV</a>
-    </li>
-    <li routerLinkActive="active">
-      <a href="http://www.google.es">Blog</a>
-    </li>
-  </ul>
+    </div>
+    <div routerLinkActive="active" class="link-item">
+      <a href="http://www.google.es" target="_blank">Blog</a>
+    </div>
+  </div>
 </nav>

@@ -1,0 +1,33 @@
+// @keyframes fadeintab
+//   0%
+//     opacity: 0
+//   100%
+//     opacity: 1
+//
+// @keyframes bg-label
+//   0%
+//     @include btn-dis
+//   100%
+//     @include btn-pri
+
+// @include tab (input, label, content, display)
+// DEPRECATED
+// @mixin tab ($tab-input, $tab-label, $tab-content, $tab-display)
+//   .#{$tab-content}
+//     transition: $linear-short
+//     display: none
+//     animation: fadeintab 0.3s linear
+//   .#{$tab-label}
+//     @include btn
+//     @include btn-dis
+//     transition: $linear-short
+//     &:hover
+//       @include btn-pri
+//       opacity: .65
+//   ##{$tab-input}
+//     display: none
+//     &:checked ~ .#{$tab-content}
+//       display: $tab-display
+//     &:checked ~ .#{$tab-label}
+//       @include btn-pri
+//       animation: bg-label 0.3s linear
