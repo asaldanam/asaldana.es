@@ -1,42 +1,136 @@
 @import "./src/assets/sass/main.sass"
 
 .navigation
-  background-color: white
+  @include flex(flex-start, center, row)
+  background-color: transparent
   height: 100%
+  padding: 0 $gap
+  box-sizing: border-box
+  // background-color: red
 
   &-menu
-    display: flex
-    justify-content: center
-    align-items: center
+    @include flex(flex-start, center, row)
     list-style: none
     margin: 0 auto
     height: 100%
     width: 100%
-    max-width: 960px
+
+  &-links
+    @include flex(flex-start, center, row)
+    margin: 0 auto
+    height: 100%
+    width: 100%
+    transform: translateY(-100%)
+    opacity: 0
+    transition: $smooth-long
+
+    &.active
+      transform: translateY(0)
+      opacity: 1
+
+    &.closed
+      transform: translateY(-100%)
+      opacity: 0
+
+    @media (max-width: $md)
+      @include flex(flex-start, flex-start, column)
+      position: fixed
+      background-color: $grey-dark
+      z-index: 100
+      left: 0
+      top: 0
+      bottom: 0
+      right: 0
+      padding-left: 20px
+      padding-top: 70px
+      box-sizing: border-box
+
 
 .link-item
   @include flex(center, center, row)
   height: 100%
+  text-transform: uppercase
+
   a
     &:link, &:visited, &:active, &:focus
       @include flex(center, center, row)
-      padding: 0 12px
-      width: 100%
+      padding: 0 6px
+      // width: 100%
       min-width: 30px
       height: 100%
-      font-weight: 400
+      font-weight: 700
+      letter-spacing: 1px
       font-size: 16px
       color: $grey
       text-decoration: none
       transition: all 300ms linear
       outline: none
     &:hover
-      color: lighten(grey, 15%)
-      background-color: lighten($grey, 20%)
+      color: lighten(grey, 30%)
 
   &.active
     a
       &:link, &:visited, &:active, &:focus
         color: black
       &:hover
-        color: #00e8e8
+        color: black
+
+  @media (max-width: $md)
+    width: 100%
+    height: auto
+    justify-content: flex-start
+    text-align: left
+    margin-bottom: 1em
+    a
+      &:link, &:visited, &:active, &:focus
+        font-size: 3em
+    &.active
+      a
+        &:link, &:visited, &:active, &:focus
+          color: white
+
+
+.responsive-button
+  @include flex(center, center, row)
+  width: 42px
+  height: 100%
+  position: static
+  z-index: 101
+  i
+    font-size: 24px
+  .hamburger
+    margin-top: 1px
+    transform: scale(0.8)
+
+    .line
+      background-color: $grey-dark
+    &.opened
+      .line
+        @media (max-width: $md)
+          background-color: $grey-bg
+
+.social
+  @include flex(flex-end, center, row)
+  height: 100%
+  width: auto
+
+  &-link
+    @include flex(center, center, row)
+    width: 32px
+    height: 32px
+    background-color: $grey-dark
+    border-radius: 50%
+    margin-right: 8px
+    border: 2px solid $grey-dark
+    box-sizing: border-box
+
+    svg
+      fill: $grey-bg
+      width: 90%
+      height: 90%
+
+    &:hover
+      background-color: $grey-bg
+
+      svg
+        fill: $grey-dark

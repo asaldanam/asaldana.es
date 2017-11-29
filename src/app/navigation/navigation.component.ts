@@ -7,7 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
+  menu:boolean = true
+
   constructor() { }
+
+  showMenu() {
+    this.menu = !this.menu;
+  }
+
+  hideMenuResponsive() {
+    if (innerWidth <= 1024) {
+      this.menu = !this.menu;
+    }
+    return;
+  }
 
   ngOnInit() {
   }
