@@ -25,6 +25,9 @@
       <div routerLinkActive="active" class="link-item">
         <a href="http://www.google.es" target="_blank" (click)="hideMenuResponsive()">Blog</a>
       </div>
+      <div routerLinkActive="active" class="link-item">
+        <a [routerLink]="['contact']" (click)="hideMenuResponsive()">Contacto</a>
+      </div>
     </div>
   </nav>
 

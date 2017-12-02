@@ -1,1 +1,95 @@
 @import "./src/assets/sass/main.sass"
+
+.home
+  height: calc(100vh - 70px)
+  width: 100%
+
+  &-container
+    @include flex(space-between, flex-end, row)
+    max-width: $lg
+    height: 100%
+    margin: 0 auto
+    @media (max-width: $lg)
+      padding: 0 $gap
+      box-sizing: border-box
+
+  &-text
+    @include flex(center, flex-start, column)
+    width: 50%
+    height: 100%
+    font-size: 1em
+    margin-bottom: 2em
+    padding: 0 30px
+
+    @media (max-width: $lg)
+      font-size: 0.85em
+
+    @media (max-width: $md)
+      width: 100%
+      position: relative
+      z-index: 2
+      text-align: center
+      margin-bottom: 0
+
+    @media (max-width: $xs)
+      font-size: 0.75em
+      padding: 0
+
+    .title
+      font-weight: 900
+      width: 100%
+      font-size: 4em
+      text-transform: uppercase
+      margin-bottom: -0.20em
+      transform: translateX(0.05em)
+      @media (max-width: $sm)
+        line-height: 1
+        margin-bottom: 0.10em
+
+    .subtitle
+      width: 100%
+      font-weight: 400
+      font-size: 3em
+      @media (max-width: $sm)
+        font-size: 2.5em
+
+    .text
+      margin: 1em 0 1.5em 0
+      font-size: 1.3em
+      line-height: 1.35
+
+    .button
+      @include btn
+      @include flex(center, center, row)
+      background-color: transparent
+      width: 100%
+      font-weight: 500
+      color: $font-color-sec
+      font-size: 1.5em
+      border-radius: 0
+      height: 70px
+      border: 2px solid $font-color-sec
+      transition: $linear-short
+      box-sizing: border-box
+      &:hover
+        background-color: $font-color-sec
+        color: $grey-bg
+
+  &-img
+    @include flex(center, flex-end, row)
+    width: 50%
+
+    @media (max-width: $md)
+      width: 100%
+      height: 100%
+      position: absolute
+      z-index: 1
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      opacity: 0.2
+
+    img
+      width: 100%
+      height: auto

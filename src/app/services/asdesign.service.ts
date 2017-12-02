@@ -11,23 +11,14 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AsdesignService {
 
-  cosa: any[] = [
-      {
-        name: 'Cerbero',
-        description: [
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        ],
-        images: [
-          'https://www.google.es/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
-          'https://www.google.es/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
-        ],
-        url: 'https://www.google.es'
-      }
-    ];
+  results = null;
 
-  constructor(private jsonp: Jsonp) {
+  constructor(
+    private jsonp: Jsonp,
+    private http: HttpClient
+  ) {
     console.log('asdesing service works');
+    
   }
 
   getProjects() {
