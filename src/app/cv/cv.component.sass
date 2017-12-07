@@ -1,0 +1,48 @@
+@import "./src/assets/sass/main.sass"
+
+.cv
+  width: 100%
+
+  // height: calc(100vh - 70px)
+
+  &-box
+    @include flex(center, flex-start, row)
+    padding: 2em $gap 0 $gap
+    box-sizing: border-box
+    max-width: $lg
+    margin: 0 auto
+    @media (max-width: $sm)
+      flex-wrap: wrap
+
+  &-overview
+    width: 25%
+    margin-right: $gap
+    padding: $gap
+    background-color: white
+    box-sizing: border-box
+    @media (max-width: $md)
+      width: 35%
+    @media (max-width: $sm)
+      width: 100%
+      margin-bottom: $gap
+
+
+  &-details
+    width: calc(75% - 15px)
+    margin-right: $gap
+    padding: $gap
+    background-color: white
+    box-sizing: border-box
+    @media (max-width: $md)
+      width: calc(65% - 15px)
+    @media (max-width: $sm)
+      width: 100%
+
+  &-img
+    width: 100%
+    margin-bottom: $gap
+
+    mar
+    img
+      width: 100%
+      height: auto

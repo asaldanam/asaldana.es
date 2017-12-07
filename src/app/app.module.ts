@@ -3,9 +3,18 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { JsonpModule, Jsonp, Response } from '@angular/http';
 
+// angular fire 2
+import {AngularFireModule} from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+
+// routing
 import { app_routing } from './app.routes';
 
-import { AsdesignService } from './services/asdesign.service'
+//service
+import { AsdesignService } from './services/asdesign.service';
+import { FirebaseService } from './services/firebase.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -29,9 +38,13 @@ import { ContactComponent } from './contact/contact.component';
     app_routing,
     HttpClientModule,
     JsonpModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [
-    AsdesignService
+    AsdesignService,
+    FirebaseService
   ],
   bootstrap: [AppComponent]
 })

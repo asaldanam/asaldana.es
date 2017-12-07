@@ -1,0 +1,31 @@
+@import "./src/assets/sass/main.sass"
+
+.portfolio
+  width: 100%
+
+  &-box
+    width: 100%
+    max-width: $lg
+    margin: 0 auto
+
+  &-items
+    @include flex(flex-start, flex-start, row)
+    flex-wrap: wrap
+    width: 100%
+
+  &-item
+    width: 25%
+    padding: 0 $gap
+    box-sizing: border-box
+
+  &-title
+    width: 100%
+    text-align: center
+    color: blue
+    text-decoration: none
+
+  &-image
+    width: 100%
+    img
+      width: 100%
+      height: auto

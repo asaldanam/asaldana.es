@@ -20,6 +20,10 @@
     font-size: 1em
     margin-bottom: 2em
     padding: 0 30px
+    opacity: 0
+    transition: $linear-long
+    &.loaded
+      opacity: 1
 
     @media (max-width: $lg)
       font-size: 0.85em

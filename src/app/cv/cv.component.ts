@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AsdesignService } from '../services/asdesign.service';
-import { Observable } from 'rxjs/Observable';
+import { FirebaseService } from '../services/firebase.service';
+
+// import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-cv',
@@ -9,11 +10,14 @@ import { Observable } from 'rxjs/Observable';
 })
 export class CvComponent implements OnInit {
 
-  constructor(public _asdesing: AsdesignService) {
+  constructor(
+    public _firebase: FirebaseService
+  )
+  {
+    this._firebase.getCurriculum().subscribe()
   }
 
   ngOnInit() {
-
   }
 
 }

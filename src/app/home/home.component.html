@@ -1,12 +1,11 @@
 <div class="home">
   <div class="home-container">
+    <div class="home-text" [ngClass]="{'loaded':loading}">
+      <h1 class="title">{{home.title}}</h1>
+      <h2 class="subtitle"><span id="typing-element"></span></h2>
+      <p class="text">{{home.summary}}</p>
 
-    <div class="home-text">
-      <h1 class="title">Abel Saldaña</h1>
-      <h2 class="subtitle">UI/UX Web desing</h2>
-      <p class="text">Hola, Soy Abel Saldaña, diseñador web, técnico audiovisual y creador multimedia con más de 4 años de experiencia en diferentes sectores (e-learning, marketing y consultoría). Mis amplios conocimientos en múltiples áreas de la comunicación gráfica me permiten crear soluciones creativas en cualquier formato.</p>
-
-      <a href="/contact" class="button">Estoy interesado en colaborar contigo</a>
+      <a href="/contact" class="button">{{home.buttonText}}</a>
     </div>
 
     <div class="home-img">
