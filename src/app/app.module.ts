@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { JsonpModule, Jsonp, Response } from '@angular/http';
 
 // angular fire 2
-import {AngularFireModule} from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';

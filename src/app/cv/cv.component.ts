@@ -10,11 +10,15 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class CvComponent implements OnInit {
 
+  loading:any = false
+
   constructor(
     public _firebase: FirebaseService
   )
   {
-    this._firebase.getCurriculum().subscribe()
+    this._firebase.getCurriculum().subscribe(data => {
+      this.loading = true;
+    })
   }
 
   ngOnInit() {

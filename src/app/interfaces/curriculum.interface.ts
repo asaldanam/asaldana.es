@@ -1,5 +1,5 @@
 export interface curriculum {
-  firstName: string;
-  lastNameOne: string;
-  lastNameTwo: string;
+  firstName?: string;
+  lastNameOne?: string;
+  lastNameTwo?: string;
 }

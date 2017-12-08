@@ -6,8 +6,8 @@ import { curriculum } from '../interfaces/curriculum.interface';
 export class FirebaseService {
 
   private itemsCollection: AngularFirestoreCollection<curriculum>;
-
-  public cv:curriculum;
+  public cv:any = [];
+  public prueba:string = "esto es una prueba";
 
   constructor(private afs: AngularFirestore) {
     console.log('fireservice works!')
@@ -15,10 +15,9 @@ export class FirebaseService {
 
   getCurriculum() {
     this.itemsCollection = this.afs.collection<curriculum>('curriculum');
-    return this.itemsCollection.valueChanges().map( resp => {
-      console.log(resp[0]);
+    return this.itemsCollection.valueChanges().map((resp: curriculum[]) => {
       this.cv = resp[0];
-    })
+    });
   }
 
 }

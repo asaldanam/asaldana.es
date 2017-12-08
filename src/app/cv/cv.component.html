@@ -1,19 +1,8 @@
-<section class="cv">
-  <div class="cv-box">
-    <div class="cv-overview">
-      <div class="cv-img">
-        <!-- <img src="{{cv.pictureUrl}}" alt=""> -->
-      </div>
-      <div class="">
-        {{ _firebase.cv.firstName }}
-      </div>
-    </div>
-    <div class="cv-details">
+<!-- {{ _firebase.cv.firstName | async }} -->
 
-      <div class="">
-            <!-- {{cv.summary}} -->
-      </div>
-    </div>
 
-  </div>
-</section>
+<p><strong>¿Está cargado?</strong>{{loading}}</p>
+<p>
+  <strong>Datos:</strong>
+  {{_firebase.cv.firstName}}
+</p>
