@@ -22,6 +22,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { CvComponent } from './cv/cv.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ContactComponent } from './contact/contact.component';
+import { KeyvaluePipe } from './pipes/keyvalue.pipe';
+import { ReversePipe } from './pipes/reverse.pipe';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { ContactComponent } from './contact/contact.component';
     PortfolioComponent,
     CvComponent,
     NavigationComponent,
-    ContactComponent
+    ContactComponent,
+    KeyvaluePipe,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,9 @@
 @import "./src/assets/sass/main.sass"
 
 .cv
+  animation: fade-in 300ms linear
   width: 100%
+  opacity: 1
 
   // height: calc(100vh - 70px)
 
@@ -11,38 +13,189 @@
     box-sizing: border-box
     max-width: $lg
     margin: 0 auto
-    @media (max-width: $sm)
+    @media (max-width: $md)
       flex-wrap: wrap
 
   &-overview
-    width: 25%
+    width: 30%
     margin-right: $gap
-    padding: $gap
-    background-color: white
+    background-color: #1f1f1f
     box-sizing: border-box
+    color: white
     @media (max-width: $md)
-      width: 35%
-    @media (max-width: $sm)
       width: 100%
+      margin-right: 0
       margin-bottom: $gap
 
+    &-img
+      @include flex(center, center, row)
+      width: 100%
+      margin-bottom: 20px
+      @media (max-width: $md)
+        max-height: 400px
+        overflow-y: hidden
+
+      img
+        width: 100%
+        height: auto
+        @media (max-width: $md)
+          position: relative
+          top: 30px
+
+    &-name
+      text-transform: uppercase
+      font-weight: 700
+      padding: 0 $gap
+      box-sizing: border-box
+      text-align: center
+      font-size: 1.4em
+
+    &-headline
+      text-align: center
+      font-size: 1.10em
+      margin-bottom: 20px
+
+    &-contact
+      &-item
+        @include flex(flex-start, center, row)
+        width: 100%
+        border-top: 2px solid darken($grey, 55%)
+        padding: 15px
+        box-sizing: border-box
+        transition: $linear-short
+        &:hover
+          background-color: darken($grey, 60%)
+          .cv-overview-contact-icon
+            color: white
+          .cv-overview-contact-text
+            color: white
+
+      &-icon
+        font-size: 28px
+        margin-right: 10px
+        color: darken($grey, 25%)
+        transition: $linear-short
+
+      &-text
+        font-size: 16px
+        color: $grey
+        transition: $linear-short
 
   &-details
-    width: calc(75% - 15px)
-    margin-right: $gap
-    padding: $gap
-    background-color: white
-    box-sizing: border-box
+    width: calc(70% - 15px)
     @media (max-width: $md)
-      width: calc(65% - 15px)
-    @media (max-width: $sm)
       width: 100%
 
-  &-img
+  &-section
     width: 100%
-    margin-bottom: $gap
+    background-color: white
+    padding: 30px
+    box-sizing: border-box
+    color: black
+    @media (max-width: $sm)
+      padding: $gap
 
-    mar
-    img
-      width: 100%
-      height: auto
+    &-header
+      @include flex(flex-start, center, row)
+      box-sizing: border-box
+
+      i
+        @include flex(center, center, row)
+        font-size: 28px
+        height: 60px
+        width: 60px
+        // border: 2px solid black
+        border-radius: 50%
+        color: #eee
+        background-color: $main-color
+        margin-right: 14px
+        @media (max-width: $sm)
+          display: none
+
+
+    &-title
+      font-size: 2em
+      font-weight: 700
+      text-transform: uppercase
+      @media (max-width: $sm)
+        margin-bottom: 30px
+
+  &-exp
+    border-left: 4px solid lighten($grey, 15%)
+    margin-left: 28px
+    padding: 0px 15px 20px 25px
+    box-sizing: border-box
+    position: relative
+    @media (max-width: $sm)
+      margin-left: 0
+      padding: 0
+      margin-bottom: 20px
+      border: 0
+
+    &::before
+      content: ' '
+      position: absolute
+      left: -10px
+      top: 28px
+      width: 8px
+      height: 8px
+      border-radius: 50%
+      background-color: $main-color
+      border: 4px solid $main-color
+      @media (max-width: $sm)
+        display: none
+
+    &:first-of-type
+      padding-top: 45px
+      @media (max-width: $sm)
+        padding-top: 0
+      &::before
+        content: ' '
+        position: absolute
+        left: -10px
+        top: 72px
+        width: 8px
+        height: 8px
+        border-radius: 50%
+        background-color: $main-color
+        border: 4px solid $main-color
+
+    &-header
+      background-color: $main-color
+      color: white
+      padding: 10px
+      margin-bottom: 18px
+      border-radius: 4px
+
+    &-title
+      font-size: 22px
+      font-weight: 600
+      margin-bottom: 4px
+      @media (max-width: $sm)
+        font-size: 18px
+
+    &-subtitle
+      @include flex(space-between, center, row)
+      font-size: 16px
+      font-weight: 500
+      @media (max-width: $sm)
+        font-size: 14px
+
+    &-date
+      font-weight: 500
+      opacity: 0.75
+
+    &-details
+      // line-height: 1.5
+      font-size: 18px
+      font-weight: 500
+      margin-bottom: 18px
+      line-height: 1.4
+
+    &-list
+      list-style: square
+      padding-left: 1.25em
+      font-size: 14px
+      color: $grey-dark
+      li
+        margin-bottom: 10px

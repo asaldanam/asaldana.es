@@ -1,8 +1,70 @@
-<!-- {{ _firebase.cv.firstName | async }} -->
-
-
-<p><strong>¿Está cargado?</strong>{{loading}}</p>
-<p>
+<!--
   <strong>Datos:</strong>
   {{_firebase.cv.firstName}}
-</p>
+  {{loading}}
+
+  <div class="" *ngFor="let item of _firebase.cv.positions">
+    <div class="" *ngFor="let cosa of item.detailsList | keyvalue">
+      {{cosa.key}}
+      {{cosa.value}}
+    </div>
+  </div> -->
+
+
+<div class="cv" *ngIf="loading">
+  <div class="cv-box">
+    <div class="cv-overview">
+      <div class="cv-overview-img">
+        <img [src]="_firebase.cv.pictureUrl" class="">
+      </div>
+      <div class="cv-overview-name">
+        {{_firebase.cv.firstName}}
+        {{_firebase.cv.lastNameOne}}
+        {{_firebase.cv.lastNameTwo}}
+      </div>
+      <div class="cv-overview-headline">
+        {{_firebase.cv.headline}}
+      </div>
+      <div class="cv-overview-contact">
+        <a class="cv-overview-contact-item" *ngFor="let contact of _firebase.cv.contact" href="/contact">
+          <i class="material-icons cv-overview-contact-icon">{{contact.icon}}</i>
+          <span class="cv-overview-contact-text">{{contact.info}}</span>
+        </a>
+      </div>
+    </div>
+    <div class="cv-details">
+
+      <section class="cv-section">
+        <header class="cv-section-header">
+          <i class="icon-briefcase"></i>
+          <div class="cv-section-title">
+            Experiencia laboral
+          </div>
+        </header>
+
+        <div class="cv-exp" *ngFor="let work of _firebase.cv.positions | reverse">
+          <header class="cv-exp-header">
+            <div class="cv-exp-title">
+              {{work.position}}
+            </div>
+            <div class="cv-exp-subtitle">
+              <span>{{work.companyName}}</span>
+              <span class="cv-exp-date">{{work.startDate.month}} {{work.startDate.year}} - {{work.endDate.month}} {{work.endDate.year}}</span>
+            </div>
+          </header>
+          <div class="cv-exp-details">
+            {{work.details}}
+          </div>
+          <!-- <ul class="cv-exp-details" *ngFor="let item of item.detailsList | keyvalue">
+            <li>{{item.value}}</li>
+          </ul> -->
+          <ul class="cv-exp-details cv-exp-list">
+            <li *ngFor="let item of work.detailsList | keyvalue">{{item.value}}</li>
+          </ul>
+        </div>
+
+      </section>
+
+    </div>
+  </div>
+</div>

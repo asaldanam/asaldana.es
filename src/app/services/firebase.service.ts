@@ -17,6 +17,7 @@ export class FirebaseService {
     this.itemsCollection = this.afs.collection<curriculum>('curriculum');
     return this.itemsCollection.valueChanges().map((resp: curriculum[]) => {
       this.cv = resp[0];
+      console.log(resp[0]);
     });
   }
 
