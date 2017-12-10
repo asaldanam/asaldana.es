@@ -5,32 +5,36 @@
   width: 100%
   opacity: 1
 
-  // height: calc(100vh - 70px)
-
   &-box
     @include flex(center, flex-start, row)
     padding: 2em $gap 0 $gap
     box-sizing: border-box
-    max-width: $lg
+    max-width: 1440px
     margin: 0 auto
     @media (max-width: $md)
       flex-wrap: wrap
 
   &-overview
-    width: 30%
-    margin-right: $gap
-    background-color: #1f1f1f
-    box-sizing: border-box
-    color: white
+    width: 35%
+    margin-right: 30px
     @media (max-width: $md)
       width: 100%
       margin-right: 0
       margin-bottom: $gap
 
+    &-main
+      width: 100%
+      background-color: $main-color-dark
+      color: white
+      margin-bottom: 30px
+      border-radius: 8px
+      overflow: hidden
+
     &-img
       @include flex(center, center, row)
       width: 100%
       margin-bottom: 20px
+
       @media (max-width: $md)
         max-height: 400px
         overflow-y: hidden
@@ -48,41 +52,102 @@
       padding: 0 $gap
       box-sizing: border-box
       text-align: center
-      font-size: 1.4em
+      font-size: 1.75em
+      @media (max-width: $lg)
+        font-size: 1.3em
+      @media (max-width: $md)
+        font-size: 2em
+      @media (max-width: $sm)
+        font-size: 1.25em
 
     &-headline
       text-align: center
-      font-size: 1.10em
+      font-size: 1.25em
       margin-bottom: 20px
+      @media (max-width: $lg)
+        font-size: 1.05em
+      @media (max-width: $md)
+        font-size: 1.5em
+      @media (max-width: $sm)
+        font-size: 1em
 
     &-contact
+      @include flex(center, flex-start, row)
+      @media (max-width: $lg)
+        @include flex(flex-start, flex-start, column)
+      @media (max-width: $md)
+        @include flex(center, flex-start, row)
+      @media (max-width: $sm)
+        @include flex(flex-start, flex-start, column)
+
       &-item
-        @include flex(flex-start, center, row)
+        @include flex(flex-start, center, column)
         width: 100%
-        border-top: 2px solid darken($grey, 55%)
+        // border-top: 2px solid darken($grey, 55%)
         padding: 15px
         box-sizing: border-box
+        background-color: transparentize(white, 0.95)
         transition: $linear-short
+
+        @media (max-width: $lg)
+          flex-direction: row
+        @media (max-width: $md)
+          flex-direction: column
+        @media (max-width: $sm)
+          flex-direction: row
+
         &:hover
-          background-color: darken($grey, 60%)
+          background-color: transparentize(white, 0.90)
           .cv-overview-contact-icon
             color: white
           .cv-overview-contact-text
             color: white
 
       &-icon
-        font-size: 28px
-        margin-right: 10px
-        color: darken($grey, 25%)
+        font-size: 38px
+        margin-bottom: 10px
+        color: white
         transition: $linear-short
+        @media (max-width: $lg)
+          font-size: 28px
+          margin-bottom: 0
+          margin-right: 10px
+        @media (max-width: $md)
+          font-size: 38px
+          margin-bottom: 10px
+          margin-right: 0px
+        @media (max-width: $sm)
+          font-size: 28px
+          margin-bottom: 0
+          margin-right: 10px
 
       &-text
-        font-size: 16px
-        color: $grey
+        font-size: 14px
+        color: white
         transition: $linear-short
 
+    &-title
+      font-size: 1.3em
+      font-weight: 700
+      text-transform: uppercase
+      margin-bottom: 15px
+      padding-bottom: 4px
+      position: relative
+      @media (max-width: $sm)
+        margin-bottom: 30px
+
+      &::after
+        content: ' '
+        height: 2px
+        width: 75px
+        background-color: white
+        position: absolute
+        left: 0
+        bottom: 0
+
+
   &-details
-    width: calc(70% - 15px)
+    width: calc(65% - 30px)
     @media (max-width: $md)
       width: 100%
 
@@ -92,6 +157,26 @@
     padding: 30px
     box-sizing: border-box
     color: black
+    margin-bottom: 30px
+    // box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+    border: 1px solid #e5e9f2
+    border-radius: 8px
+
+    &.dark
+      background-color: $main-color-dark
+      border: none
+      color: white
+
+    &.blank
+      background-color: transparent
+      padding: 0
+      border: 0
+
+      .cv-overview-title
+        color: $main-color-dark
+        &::after
+          background-color: $main-color-dark
+
     @media (max-width: $sm)
       padding: $gap
 
@@ -112,11 +197,11 @@
         @media (max-width: $sm)
           display: none
 
-
     &-title
       font-size: 2em
       font-weight: 700
       text-transform: uppercase
+      color: $main-color-dark
       @media (max-width: $sm)
         margin-bottom: 30px
 
@@ -168,9 +253,11 @@
       border-radius: 4px
 
     &-title
-      font-size: 22px
+      font-size: 20px
       font-weight: 600
-      margin-bottom: 4px
+      margin-bottom: 8px
+      border-bottom: 1px solid transparentize(white, 0.85)
+      padding-bottom: 8px
       @media (max-width: $sm)
         font-size: 18px
 
@@ -199,3 +286,45 @@
       color: $grey-dark
       li
         margin-bottom: 10px
+
+
+  &-skill
+
+    &-item
+      @include flex(flex-start, flex-start, row)
+      height: 22px
+      font-size: 14px
+      border-radius: 100px
+      border: 2px solid white
+      overflow: hidden
+      margin-bottom: 10px
+
+    &-bar
+      @include flex(flex-start, center, row)
+      height: 100%
+      width: 100%
+      padding-left: 8px
+      background-color: white
+      color: $main-color-dark
+      font-weight: 700
+      transition: $smooth-long
+
+  &-software
+    @include flex(flex-start, center, row)
+    flex-wrap: wrap
+    width: 100%
+
+    &-item
+      @include flex(flex-start, center, row)
+      width: 50%
+      margin-bottom: 12px
+
+      img
+        width: 40px
+        height: auto
+        margin-right: 5px
+
+      span
+        font-size: 1em
+        font-weight: 700
+        color: $main-color-dark

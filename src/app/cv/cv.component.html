@@ -1,40 +1,81 @@
-<!--
-  <strong>Datos:</strong>
-  {{_firebase.cv.firstName}}
-  {{loading}}
 
-  <div class="" *ngFor="let item of _firebase.cv.positions">
-    <div class="" *ngFor="let cosa of item.detailsList | keyvalue">
-      {{cosa.key}}
-      {{cosa.value}}
-    </div>
-  </div> -->
 
 
 <div class="cv" *ngIf="loading">
   <div class="cv-box">
-    <div class="cv-overview">
-      <div class="cv-overview-img">
-        <img [src]="_firebase.cv.pictureUrl" class="">
-      </div>
-      <div class="cv-overview-name">
-        {{_firebase.cv.firstName}}
-        {{_firebase.cv.lastNameOne}}
-        {{_firebase.cv.lastNameTwo}}
-      </div>
-      <div class="cv-overview-headline">
-        {{_firebase.cv.headline}}
-      </div>
-      <div class="cv-overview-contact">
-        <a class="cv-overview-contact-item" *ngFor="let contact of _firebase.cv.contact" href="/contact">
-          <i class="material-icons cv-overview-contact-icon">{{contact.icon}}</i>
-          <span class="cv-overview-contact-text">{{contact.info}}</span>
-        </a>
-      </div>
-    </div>
-    <div class="cv-details">
 
-      <section class="cv-section">
+    <div class="cv-overview">
+
+      <!-- main overview -->
+      <section class="cv-overview-main">
+        <div class="cv-overview-img">
+          <img [src]="_firebase.cv.pictureUrl" class="">
+        </div>
+        <div class="cv-overview-name">
+          {{_firebase.cv.firstName}}
+          {{_firebase.cv.lastNameOne}}
+          {{_firebase.cv.lastNameTwo}}
+        </div>
+        <div class="cv-overview-headline">
+          {{_firebase.cv.headline}}
+        </div>
+        <div class="cv-overview-contact">
+          <a class="cv-overview-contact-item" *ngFor="let contact of _firebase.cv.contact" href="/contact">
+            <i class="material-icons cv-overview-contact-icon">{{contact.icon}}</i>
+            <span class="cv-overview-contact-text">{{contact.info}}</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="cv-section dark">
+        <div class="cv-overview-title">
+          Habilidades
+        </div>
+        <div class="cv-skill">
+
+          <div class="cv-skill-item" *ngFor="let skill of _firebase.cv.skills">
+            <div class="cv-skill-bar" [ngStyle]="{'width.%': skill.percent}">
+              {{skill.item}}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="cv-section blank" style="padding:15px">
+        <div class="cv-overview-title">
+          Software
+        </div>
+        <div class="cv-software">
+          <div class="cv-software-item" *ngFor="let app of _firebase.cv.software">
+            <img [src]="app.img" alt="">
+            <span>{{app.item}}</span>
+          </div>
+          <!-- <div class="cv-software-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/2000px-Adobe_Photoshop_CC_icon.svg.png" alt="">
+            <span>Adobe Photoshop</span>
+          </div>
+          <div class="cv-software-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/2000px-Adobe_Photoshop_CC_icon.svg.png" alt="">
+            <span>Adobe Photoshop</span>
+          </div>
+          <div class="cv-software-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/2000px-Adobe_Photoshop_CC_icon.svg.png" alt="">
+            <span>Adobe Photoshop</span>
+          </div>
+          <div class="cv-software-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/2000px-Adobe_Photoshop_CC_icon.svg.png" alt="">
+            <span>Adobe Photoshop</span>
+          </div> -->
+        </div>
+      </section>
+
+    </div>
+
+
+    <div class="cv-details">
+      <!-- Positions -->
+      <section class="cv-section blank">
         <header class="cv-section-header">
           <i class="icon-briefcase"></i>
           <div class="cv-section-title">
@@ -65,6 +106,32 @@
 
       </section>
 
+      <!-- Studies -->
+      <section class="cv-section blank">
+        <header class="cv-section-header">
+          <i class="icon-graduation"></i>
+          <div class="cv-section-title">
+            Formación
+          </div>
+        </header>
+
+        <div class="cv-exp" *ngFor="let course of _firebase.cv.courses | reverse">
+          <header class="cv-exp-header">
+            <div class="cv-exp-title">
+              {{course.courseTitle}}
+            </div>
+            <div class="cv-exp-subtitle">
+              <span>{{course.academy}}</span>
+              <span class="cv-exp-date">{{course.startDate.month}} {{course.startDate.year}} - {{course.endDate.month}} {{course.endDate.year}}</span>
+            </div>
+          </header>
+          <div class="cv-exp-details">
+            {{course.details}}
+          </div>
+        </div>
+
+      </section>
     </div>
+
   </div>
 </div>
