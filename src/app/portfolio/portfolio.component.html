@@ -1,14 +1,29 @@
 <div class="portfolio">
   <div class="portfolio-box">
     <div class="portfolio-items">
-      <a href="{{project.url}}" target="_blank" class="portfolio-item" *ngFor="let project of portfolio">
-        <div class="portfolio-image">
-          <img src="{{project.covers.original}}" alt="">
-        </div>
-        <div class="portfolio-title">
-          {{project.name}}
-        </div>
-      </a>
+
+      <div class="portfolio-item-box" *ngFor="let project of portfolio">
+        <a href="{{project.url}}" target="_blank" class="portfolio-item" >
+          <div class="portfolio-image">
+            <img src="{{project.covers.original}}" alt="">
+          </div>
+          <div class="portfolio-title">
+            <div class="portfolio-title-text">
+              <span class="project">{{project.name}}</span>
+              <i class="material-icons">remove_red_eye</i>
+              <span class="stat-views">{{project.stats.views}}</span>
+            </div>
+          </div>
+          <ul class="portfolio-fields">
+            <li class="portfolio-fields-item" *ngFor="let field of project.fields">
+              {{field}}
+            </li>
+          </ul>
+        </a>
+      </div>
+
+
+
     </div>
   </div>
 </div>

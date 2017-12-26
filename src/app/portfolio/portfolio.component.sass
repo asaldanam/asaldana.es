@@ -9,23 +9,97 @@
     margin: 0 auto
 
   &-items
-    @include flex(flex-start, flex-start, row)
+    @include flex(flex-start, stretch, row)
     flex-wrap: wrap
     width: 100%
 
+
   &-item
-    width: 25%
-    padding: 0 $gap
+    width: 100%
+    display: block
     box-sizing: border-box
+    background-color: white
+    padding-bottom: 7px
+    overflow: hidden
+    border-radius: 3px
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+    transition: all 100ms linear
+    height: 100%
+
+    &:hover
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+
+    &-box
+      width: 25%
+      padding: 0 10px
+      margin-bottom: 20px
+      box-sizing: border-box
+
+      @media (max-width: $md)
+        width: 33.3333%
+
+      @media (max-width: $sm)
+        width: 100%
 
   &-title
     width: 100%
-    text-align: center
+    text-align: left
     color: blue
     text-decoration: none
+    color: $grey-dark
+    font-size: 1em
+    font-weight: 600
+    padding: 0 10px
+    box-sizing: border-box
+
+    &-text
+      @include flex(flex-end, center, row)
+
+      .project
+        margin-right: auto
+
+      i.material-icons
+        font-size: 20px
+        margin-right: 3px
+        color: $main-color
+
+      .stat-views
+        font-size: 14px
+        color: $main-color
+
+
+    &::after
+      content: ' '
+      margin-top: 7px
+      margin-bottom: 10px
+      display: block
+      width: 70px
+      height: 1px
+      background-color: $main-color
+
+
+  &-fields
+    padding: 0 10px
+    box-sizing: border-box
+    font-size: 10px
+    font-weight: 500
+
+    &-item
+      display: inline-block
+      color: white
+      background-color: $main-color
+      padding: 3px 4px
+      border-radius: 3px
+      margin-right: 4px
+      margin-bottom: 3px
+
+      &:last-child
+        margin-right: 0
+
 
   &-image
     width: 100%
+    margin-bottom: 8px
     img
       width: 100%
       height: auto

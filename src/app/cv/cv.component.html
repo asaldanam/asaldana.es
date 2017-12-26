@@ -1,6 +1,3 @@
-
-
-
 <div class="cv" *ngIf="loading">
   <div class="cv-box">
 
@@ -48,7 +45,8 @@
         </div>
         <div class="cv-software">
           <div class="cv-software-item" *ngFor="let app of _firebase.cv.software">
-            <img [src]="app.img" alt="">
+            <!-- <img [src]="app.img" alt=""> -->
+            <img src="assets/img/software-icons/{{app.img}}.png">
             <span>{{app.item}}</span>
           </div>
           <!-- <div class="cv-software-item">
@@ -83,25 +81,27 @@
           </div>
         </header>
 
-        <div class="cv-exp" *ngFor="let work of _firebase.cv.positions | reverse">
-          <header class="cv-exp-header">
-            <div class="cv-exp-title">
-              {{work.position}}
+        <div *ngFor="let work of _firebase.cv.positions | reverse">
+          <div class="cv-exp" *ngIf="work.display == true">
+            <header class="cv-exp-header">
+              <div class="cv-exp-title">
+                {{work.position}}
+              </div>
+              <div class="cv-exp-subtitle">
+                <span>{{work.companyName}}</span>
+                <span class="cv-exp-date">{{work.startDate.month}} {{work.startDate.year}} - {{work.endDate.month}} {{work.endDate.year}}</span>
+              </div>
+            </header>
+            <div class="cv-exp-details">
+              {{work.details}}
             </div>
-            <div class="cv-exp-subtitle">
-              <span>{{work.companyName}}</span>
-              <span class="cv-exp-date">{{work.startDate.month}} {{work.startDate.year}} - {{work.endDate.month}} {{work.endDate.year}}</span>
-            </div>
-          </header>
-          <div class="cv-exp-details">
-            {{work.details}}
+            <!-- <ul class="cv-exp-details" *ngFor="let item of item.detailsList | keyvalue">
+              <li>{{item.value}}</li>
+            </ul> -->
+            <ul class="cv-exp-details cv-exp-list">
+              <li *ngFor="let item of work.detailsList | keyvalue">{{item.value}}</li>
+            </ul>
           </div>
-          <!-- <ul class="cv-exp-details" *ngFor="let item of item.detailsList | keyvalue">
-            <li>{{item.value}}</li>
-          </ul> -->
-          <ul class="cv-exp-details cv-exp-list">
-            <li *ngFor="let item of work.detailsList | keyvalue">{{item.value}}</li>
-          </ul>
         </div>
 
       </section>
