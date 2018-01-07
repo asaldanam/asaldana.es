@@ -11,7 +11,7 @@ export class AsdesignService {
   //behance data
   behanceURL:string = "https://api.behance.net/v2";
   behanceData:string = "users";
-  behanceUser:string = "asaldanam2a11";
+  behanceUser:string = "asaldana";
   behanceProjects:string = "projects";
   behanceWorks:string = "work_experience";
   behanceClientID:string = "9P9QYEfzOkR7xVZAMfUdlic1UCjOInlO";
