@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
       this._asdesing.getHome().subscribe(data => {
         this.home = data;
         this.loading = !this.loading;
-        console.log(this.home);
+        // console.log(this.home);
       });
     }
 
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
       this.loadHome();
-      this.typedJS();
+      // this.typedJS();
     }
 
 

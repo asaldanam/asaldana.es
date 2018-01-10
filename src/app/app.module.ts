@@ -24,6 +24,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ContactComponent } from './contact/contact.component';
 import { KeyvaluePipe } from './pipes/keyvalue.pipe';
 import { ReversePipe } from './pipes/reverse.pipe';
+import { StartComponent } from './start/start.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { ReversePipe } from './pipes/reverse.pipe';
     NavigationComponent,
     ContactComponent,
     KeyvaluePipe,
-    ReversePipe
+    ReversePipe,
+    StartComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

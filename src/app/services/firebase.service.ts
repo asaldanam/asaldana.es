@@ -10,14 +10,14 @@ export class FirebaseService {
   public prueba:string = "esto es una prueba";
 
   constructor(private afs: AngularFirestore) {
-    console.log('fireservice works!')
+    // console.log('fireservice works!')
   }
 
   getCurriculum() {
     this.itemsCollection = this.afs.collection<curriculum>('curriculum');
     return this.itemsCollection.valueChanges().map((resp: curriculum[]) => {
       this.cv = resp[0];
-      console.log(resp[0]);
+      // console.log(resp[0]);
     });
   }
 

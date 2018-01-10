@@ -1,0 +1,40 @@
+@import "./src/assets/sass/main.sass"
+
+.start
+  @include flex(center, center, row)
+  height: calc(100vh - 70px)
+  width: 100%
+  opacity: 0
+  transition: $linear-short
+  &.loaded
+    opacity: 1
+
+  &-box
+    margin-bottom: 70px
+    width: $xs
+    padding: 0 30px
+    box-sizing: border-box
+    color: black
+
+    @media (max-width: $sm)
+      font-size: 14px
+    @media (max-width: $xs)
+      font-size: 10px
+      padding: 0 20px
+
+
+    .logo
+      width: 20em
+      display: block
+      margin: 0 auto 20px auto
+
+    .title
+      font-size: 2.9em
+      font-weight: 800
+      text-align: center
+      line-height: 1
+      text-transform: uppercase
+
+    .subtitle
+      font-size: 2em
+      text-align: center

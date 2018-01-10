@@ -25,7 +25,7 @@ export class AsdesignService {
     private jsonp: Jsonp,
     private http: HttpClient
   ) {
-    console.log('asdesing service works');
+    // console.log('asdesing service works');
 
   }
 

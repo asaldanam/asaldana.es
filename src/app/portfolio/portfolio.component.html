@@ -1,7 +1,9 @@
-<div class="portfolio">
+<div class="" *ngIf="!loading">
+  <app-loading></app-loading>
+</div>
+<div class="portfolio" [ngClass]="{'loaded':loading}">
   <div class="portfolio-box">
     <div class="portfolio-items">
-
       <div class="portfolio-item-box" *ngFor="let project of portfolio">
         <a href="{{project.url}}" target="_blank" class="portfolio-item" >
           <div class="portfolio-image">

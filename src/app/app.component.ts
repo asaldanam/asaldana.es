@@ -9,9 +9,4 @@ import { RouterModule, Routes } from '@angular/router';
 })
 
 export class AppComponent {
-  quote = {
-    text: "Un gran poder conlleva una gran responsabilidad",
-    author: "Yoda"
-};
-
 }

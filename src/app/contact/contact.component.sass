@@ -1,0 +1,63 @@
+@import "./src/assets/sass/main.sass"
+
+.contact
+  @include flex(center, center, row)
+  height: calc(100vh - 70px)
+  width: 100%
+
+  @media (max-width: $sm)
+    display: block
+
+  &-form
+    width: 100%
+    max-width: $sm
+    margin-bottom: 70px
+    padding: 0 15px
+    box-sizing: border-box
+
+    label
+      @include custom-label
+      text-transform: uppercase
+      font-size: 12px
+      letter-spacing: 1px
+      font-weight: 700
+      margin-bottom: 3px
+
+    input
+      @include custom-input
+      height: 50px
+
+    textarea
+      @include custom-textarea
+      min-height: 200px
+      padding: 15px
+      max-height: 300px
+
+
+    .form-group
+      margin-bottom: 15px
+
+    .as-input
+      border: 1px solid $font-color-sec
+      border-radius: 0
+      padding-left: 15px
+      padding-right: 15px
+
+
+    .button
+      @include btn
+      @include flex(center, center, row)
+      margin-top: 25px
+      width: 100%
+      font-weight: 500
+      font-size: 1.25em
+      border-radius: 0
+      height: 50px
+      border: 2px solid $font-color-sec
+      transition: $linear-short
+      box-sizing: border-box
+      background-color: $font-color-sec
+      color: $grey-bg
+      &:hover
+        background-color: transparent
+        color: $font-color-sec

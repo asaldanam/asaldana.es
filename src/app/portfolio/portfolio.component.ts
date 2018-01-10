@@ -10,6 +10,7 @@ import { AsdesignService } from '../services/asdesign.service';
 export class PortfolioComponent implements OnInit {
 
   portfolio = "";
+  loading:boolean = false;
 
   constructor(
     public _asdesing: AsdesignService
@@ -19,7 +20,8 @@ export class PortfolioComponent implements OnInit {
   loadProjects() {
     this._asdesing.getProjects().subscribe(data => {
       this.portfolio = data;
-      console.log(this.portfolio);
+      this.loading = true;
+      // console.log(this.portfolio);
     });
   }
 
